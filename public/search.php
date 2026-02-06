@@ -1,10 +1,11 @@
 <?php
 require_once "../config/db.php";
-
+//Get the search text from URL
 $query = $_GET['q'] ?? '';
 
 $sql = "SELECT * FROM courses WHERE title LIKE ?";
 $stmt = $pdo->prepare($sql);
+//Execute with wildcard pattern
 $stmt->execute(['%' . $query . '%']);
 
 $courses = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -21,6 +22,8 @@ if ($courses) {
         </div>
         ";
     }
+//If no courses match   
+
 } else {
     echo "<p>No courses found.</p>";
 }

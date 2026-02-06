@@ -3,12 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>LearnOnline | Online Courses</title>
+
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 
     <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
+
     <?php
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
@@ -23,8 +25,8 @@ if (session_status() === PHP_SESSION_NONE) {
         </div>
 
        <nav class="nav">
-    <a href="index.php">Home</a>
-    <a href="courses.php">Courses</a>
+        <a href="index.php">Home</a>
+        <a href="courses.php">Courses</a>
 
     <?php if (isset($_SESSION['user_id'])): ?>
         <a href="my-courses.php">My Courses</a>
@@ -34,7 +36,6 @@ if (session_status() === PHP_SESSION_NONE) {
             <a href="admin-courses.php">Manage Courses</a>
         <?php endif; ?>
     <?php endif; ?>
-
 
 </nav>
 
@@ -54,8 +55,7 @@ if (session_status() === PHP_SESSION_NONE) {
     <?php endif; ?>
 </div>
 
-
-    </div>
+</div>
 </header>
 
 <main>

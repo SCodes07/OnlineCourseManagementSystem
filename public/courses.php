@@ -1,13 +1,15 @@
 <?php
 require_once "../config/db.php";
+
 include "../includes/header.php";
 
-// Fetch ALL courses initially
+//SQL to fetch all courses with instructor name
 $sql = "SELECT courses.*, instructors.name AS instructor_name
     FROM courses
     LEFT JOIN instructors
     ON courses.instructor_id = instructors.id
     ORDER BY courses.created_at DESC";
+    
 $stmt = $pdo->query($sql);
 $courses = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>

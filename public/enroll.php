@@ -2,13 +2,13 @@
 session_start();
 require_once "../config/db.php";
 
-// Check login
+//Check if user is logged in
 if (!isset($_SESSION['user_id'])) {
     header("Location: login.php");
     exit;
 }
 
-// Check course id
+//Check if course ID is provided
 if (!isset($_GET['id'])) {
     header("Location: courses.php");
     exit;
@@ -17,7 +17,7 @@ if (!isset($_GET['id'])) {
 $user_id = $_SESSION['user_id'];
 $course_id = $_GET['id'];
 
-// Check if already enrolled
+// Check if user is already enrolled
 $checkSql = "SELECT * FROM enrollments WHERE user_id = ? AND course_id = ?";
 $checkStmt = $pdo->prepare($checkSql);
 $checkStmt->execute([$user_id, $course_id]);

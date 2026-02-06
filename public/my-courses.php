@@ -19,6 +19,7 @@ $sql = "
 ";
 $stmt = $pdo->prepare($sql);
 $stmt->execute([$user_id]);
+//Fetch all results
 $courses = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 include "../includes/header.php";

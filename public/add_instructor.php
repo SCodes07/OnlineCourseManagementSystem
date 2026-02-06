@@ -1,12 +1,12 @@
 <?php
 session_start();
 require_once "../config/db.php";
-
+//Admin authorization check
 if ($_SESSION['role'] !== 'admin') {
     header("Location: ../index.php");
     exit;
 }
-
+//Check if form is submitted
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $name = $_POST['name'];
     $email = $_POST['email'];
@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt = $pdo->prepare("INSERT INTO instructors (name, email) VALUES (?, ?)");
     $stmt->execute([$name, $email]);
 }
-
+//Retrieve instructors list
 $instructors = $pdo->query("SELECT * FROM instructors")->fetchAll();
 include "../includes/header.php"
 ?>

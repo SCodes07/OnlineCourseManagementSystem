@@ -34,7 +34,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     $update = "UPDATE courses SET title=?, description=?, duration=?, level=?, instructor_id=? WHERE id=?";
     $stmt = $pdo->prepare($update);
-    $stmt->execute([$title, $description, $duration, $level, $id]);
+    $stmt->execute([
+    $title,
+    $description,
+    $duration,
+    $level,
+    $instructor_id,
+    $id
+]);
 
 
     header("Location: admin-courses.php");

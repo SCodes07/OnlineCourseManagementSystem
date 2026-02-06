@@ -2,14 +2,14 @@
 require_once "../config/db.php";
 
 $message = "";
-
+//Check form submission
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-
+//Read and clean form inputs
     $name     = trim($_POST["name"]);
     $email    = trim($_POST["email"]);
     $password = $_POST["password"];
     $confirm  = $_POST["confirm_password"];
-
+//password match validation
     if ($password !== $confirm) {
         $message = "Passwords do not match!";
     } else {
@@ -19,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         // Insert user
         $sql = "INSERT INTO users (name, email, password) VALUES (?, ?, ?)";
         $stmt = $pdo->prepare($sql);
-
+//Execute inside try-catch
         try {
             $stmt->execute([$name, $email, $hashedPassword]);
             $message = "Registration successful! You can login now.";
@@ -34,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 <section class="auth-section">
     <h2>Create Account</h2>
-
+//Display message (if exists)
     <?php if ($message): ?>
         <p style="color:red; text-align:center;">
             <?= $message ?>

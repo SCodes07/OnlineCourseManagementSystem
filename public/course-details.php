@@ -1,7 +1,7 @@
 <?php
 require_once "../config/db.php";
 include "../includes/header.php";
-
+//Check if course ID exists in URL
 if (!isset($_GET['id'])) {
     echo "<p>Course not found.</p>";
     include "../includes/footer.php";
@@ -13,8 +13,9 @@ $id = $_GET['id'];
 $sql = "SELECT * FROM courses WHERE id = ?";
 $stmt = $pdo->prepare($sql);
 $stmt->execute([$id]);
+//Fetch result
 $course = $stmt->fetch(PDO::FETCH_ASSOC);
-
+//If course does not exist
 if (!$course) {
     echo "<p>Course not found.</p>";
     include "../includes/footer.php";
@@ -24,7 +25,9 @@ if (!$course) {
 
 <section class="course-details">
     <h2><?= htmlspecialchars($course['title']) ?></h2>
+    
     <?php if (isset($_GET['msg'])): ?>
+
     <?php if ($_GET['msg'] === 'success'): ?>
         <p style="color:green;">You have successfully enrolled!</p>
     <?php elseif ($_GET['msg'] === 'already'): ?>

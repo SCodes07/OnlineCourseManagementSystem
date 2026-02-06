@@ -19,7 +19,7 @@ body {
     margin: auto;
 }
 
-/* ================= HEADER ================= */
+/* HEADER */
 .header {
     background: #ffffff;
     border-bottom: 1px solid #e0e0e0;
@@ -93,7 +93,52 @@ body {
     color: #ffffff;
 }
 
-/* ================= HERO ================= */
+/* MANAGE COURSES ACTION STYLES  */
+
+/* Action column */
+.courses td:last-child {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+/* Edit button */
+.courses td a {
+    padding: 6px 14px;
+    font-size: 13px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+/* Edit */
+.courses td a:not(.delete-link) {
+    background: #27005D;
+    color: #ffffff;
+}
+
+.courses td a:not(.delete-link):hover {
+    background: #1a0040;
+}
+
+/* Delete button (ONLY delete link is red) */
+.delete-link {
+    background: #c0392b;
+    color: #ffffff !important;
+}
+
+.delete-link:hover {
+    background: #a93226;
+}
+
+/* Remove default table link underline */
+.courses td a {
+    text-decoration: none;
+}
+
+
+/*  HERO */
 .hero {
     background: #27005D;
     color: #ffffff;
@@ -114,7 +159,7 @@ body {
     color: #e0e0e0;
 }
 
-/* ================= FEATURES ================= */
+/* FEATURES  */
 .features {
     display: flex;
     gap: 40px;
@@ -140,7 +185,7 @@ body {
     color: #666;
 }
 
-/* ================= COURSES ================= */
+/*  COURSES */
 .courses {
     padding: 100px 20px;
     text-align: center;
@@ -195,7 +240,7 @@ body {
     border: 1px solid #ddd;
 }
 
-/* ================= FORMS ================= */
+/* FORMS */
 .auth-section {
     max-width: 500px;
     margin: 100px auto;
@@ -278,6 +323,97 @@ body {
     border-radius: 4px;
 }
 
+/*COURSE DETAILS PAGE */
+
+.course-details {
+    max-width: 500px;
+    margin: 100px auto;
+    background: #ffffff;
+    padding: 60px;
+    border-radius: 16px;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
+}
+
+/* Title */
+.course-details h2 {
+    font-size: 32px;
+    margin-bottom: 16px;
+    color: #27005D;
+    text-align: center;
+}
+
+/* Success / Warning message */
+.course-details p[style] {
+    text-align: center;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+/* Description */
+.course-details > p {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.8;
+    margin-bottom: 36px;
+    text-align: center;
+}
+
+/* Info list */
+.course-info {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 40px;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+
+.course-info li {
+    display: flex;
+    justify-content: space-between;
+    padding: 14px 0;
+    font-size: 15px;
+    color: #444;
+}
+
+.course-info strong {
+    color: #27005D;
+}
+
+/* Enroll button */
+.course-details .btn {
+    display: block;
+    width: fit-content;
+    margin: 0 auto;
+    padding: 14px 40px;
+    font-size: 16px;
+    border-radius: 10px;
+}
+
+/* Hover effect */
+.course-details .btn:hover {
+    background: #1a0040;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+
+    .course-details {
+        margin: 60px 16px;
+        padding: 40px 24px;
+    }
+
+    .course-details h2 {
+        font-size: 26px;
+    }
+
+    .course-info li {
+        flex-direction: column;
+        gap: 6px;
+    }
+}
+
+
 /* Hover (optional but basic) */
 .admin-btn:hover {
     opacity: 0.9;
@@ -285,7 +421,7 @@ body {
 
 
 
-/* ================= FOOTER ================= */
+/*  FOOTER */
 .footer {
     background: #27005D;
     color: #e0e0e0;
@@ -300,7 +436,7 @@ body {
     text-decoration: none;
 }
 
-/* ================= MEDIA QUERY ================= */
+/* = MEDIA QUERY = */
 @media (max-width: 768px) {
 
     .header-flex {
@@ -331,5 +467,119 @@ body {
 
     .hero {
         padding: 100px 20px;
+    }
+}
+
+
+/* MANAGE COURSES – SHARED CSS */
+
+/* Section wrapper */
+.courses {
+    max-width: 1100px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+/* Page heading */
+.courses h2 {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 25px;
+    color: #27005D;
+}
+
+/* Table container */
+.courses table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+}
+
+/* Table header */
+.courses th {
+    background: #27005D;
+    color: #ffffff;
+    text-align: left;
+    padding: 14px 18px;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+/* Table rows */
+.courses td {
+    padding: 14px 18px;
+    border-bottom: 1px solid #eee;
+    font-size: 15px;
+    color: #333;
+}
+
+/* Zebra striping */
+.courses tr:nth-child(even) td {
+    background: #fafafa;
+}
+
+/* Hover effect */
+.courses tr:hover td {
+    background: #f2edff;
+}
+
+/* Action links */
+.courses td a {
+    text-decoration: none;
+    font-weight: 600;
+    color: #27005D;
+    margin-right: 8px;
+}
+
+.courses td a:hover {
+    text-decoration: underline;
+}
+
+/* Delete link styling */
+.courses .delete-link {
+    color: #c0392b;
+}
+
+.courses .delete-link:hover {
+    color: #a93226;
+}
+
+/* Responsive table (mobile) */
+@media (max-width: 768px) {
+    .courses table,
+    .courses thead,
+    .courses tbody,
+    .courses th,
+    .courses td,
+    .courses tr {
+        display: block;
+    }
+
+    .courses tr {
+        margin-bottom: 15px;
+        border-radius: 10px;
+        box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+    }
+
+    .courses th {
+        display: none;
+    }
+
+    .courses td {
+        border: none;
+        position: relative;
+        padding-left: 50%;
+    }
+
+    .courses td::before {
+        position: absolute;
+        left: 16px;
+        top: 14px;
+        font-weight: 600;
+        color: #555;
+        white-space: nowrap;
     }
 }

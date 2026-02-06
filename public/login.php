@@ -3,18 +3,19 @@ session_start();
 require_once "../config/db.php";
 
 $message = "";
-
+//Check request method
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-
+    //Get user input
     $email    = trim($_POST["email"]);
     $password = $_POST["password"];
 
+    //Fetch user from database
     $sql = "SELECT * FROM users WHERE email = ?";
     $stmt = $pdo->prepare($sql);
     $stmt->execute([$email]);
-
+    //fetch result
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
-
+    //Password verification
     if ($user && password_verify($password, $user["password"])) {
 
         // Login success
